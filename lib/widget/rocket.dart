@@ -47,11 +47,16 @@ class _RocketState extends State<Rocket> {
                     ),
                     Text(DATA[widget.index]['rocket'],
                         style: ThemeText.BLACK_NAME_TEXT),
-                    FlatButton(
-                      color: DATA[widget.index]['status'] == 'active'
-                          ? GREEN_BUTTON
-                          : Color(0xFFFF0000),
-                      onPressed: () {},
+                    SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 18, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        color: DATA[widget.index]['status'] == 'active'
+                            ? GREEN_BUTTON
+                            : Color(0xFFFF0000),
+                      ),
                       child: Text(
                         DATA[widget.index]['status'].toUpperCase(),
                         style: TextStyle(
