@@ -22,7 +22,10 @@ class _CirclePainter extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration cfg) {
     final Offset circleOffset =
-        offset + Offset(cfg.size.width / 3, cfg.size.height);
-    canvas.drawCircle(circleOffset, radius, _paint);
+        offset + Offset(cfg.size.width / 4, cfg.size.height);
+
+    Rect myRect = circleOffset & const Size(50, 4);
+
+    canvas.drawRRect(RRect.fromRectXY(myRect, 5, 5), _paint);
   }
 }

@@ -1,6 +1,8 @@
 import 'package:estatetial_flutter_challenge/utils/colors.dart';
 import 'package:estatetial_flutter_challenge/utils/mock_data.dart';
+import 'package:estatetial_flutter_challenge/utils/paint_indicator.dart';
 import 'package:estatetial_flutter_challenge/utils/styles.dart';
+import 'package:estatetial_flutter_challenge/widget/rocket.dart';
 import 'package:flutter/material.dart';
 
 import 'launch.dart';
@@ -47,7 +49,7 @@ List<Widget> containers = [
     child: ListView.builder(
       itemCount: DATA.length,
       itemBuilder: (context, index) {
-        return Launch(index: index);
+        return Rocket(index: index);
       },
     ),
   ),
@@ -82,7 +84,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.85,
+          height: MediaQuery.of(context).size.height * 0.87,
           child: Scaffold(
             appBar: PreferredSize(
               preferredSize: Size.fromHeight(70),
@@ -94,9 +96,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
                     indicatorSize: TabBarIndicatorSize.label,
                     unselectedLabelColor: GREY_COLOR,
                     labelColor: RED_COLOR,
-                    indicator: UnderlineTabIndicator(
-                        borderSide:
-                            const BorderSide(width: 4, color: RED_COLOR)),
+                    indicator: CircleTabIndicator(color: RED_COLOR, radius: 4),
                     tabs: <Widget>[
                       Tab(
                           child: Text('Upcoming',

@@ -25,7 +25,7 @@ class _LaunchDetailScreenState extends State<LaunchDetailScreen> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 32),
               child: Icon(
                 Icons.share,
                 color: Colors.white,

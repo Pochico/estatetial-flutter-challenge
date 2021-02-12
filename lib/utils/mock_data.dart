@@ -10,6 +10,7 @@ const DATA = [
     'type': 'v1.0',
     'first_stage': 'cores 4',
     'second_stage': 'payloads: 150kg',
+    'status': 'inactive'
   },
   {
     'image': './assets/images/falcon9.png',
@@ -22,6 +23,7 @@ const DATA = [
     'type': 'v1.0',
     'first_stage': 'cores 4',
     'second_stage': 'payloads: 150kg',
+    'status': 'inactive'
   },
   {
     'image': './assets/images/demosat02.png',
@@ -34,6 +36,7 @@ const DATA = [
     'type': 'v1.0',
     'first_stage': 'cores 4',
     'second_stage': 'payloads: 150kg',
+    'status': 'active'
   },
   {
     'image': './assets/images/crs.png',
@@ -46,5 +49,6 @@ const DATA = [
     'type': 'v1.0',
     'first_stage': 'cores 4',
     'second_stage': 'payloads: 150kg',
+    'status': 'inactive'
   }
 ];

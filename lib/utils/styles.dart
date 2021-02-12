@@ -18,7 +18,7 @@ abstract class ThemeText {
 
   static const TextStyle WHITE_NAME_TEXT = TextStyle(
     color: Color(0xFFFFFFFF),
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: FontWeight.bold,
     height: 2,
   );
@@ -31,8 +31,8 @@ abstract class ThemeText {
 
   static const TextStyle WHITE_NORMAL_TEXT = TextStyle(
     color: Color(0xFFFFFFFF),
-    fontSize: 16,
-    height: 2,
+    fontSize: 18,
+    height: 1.6,
   );
 
   static const TextStyle GREY_DATA_TEXT = TextStyle(
