@@ -67,15 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         body: Center(
-
-            /*
           child: Container(
-            color: Colors.red,
-            height: 300,
-            width: 400,
+            height: double.infinity,
+            width: double.infinity,
             child: Image.asset(
-                './assets/images/spacex_logo.png'), //  TODO fix spacex logo for homescreen
-          ),*/
-            ));
+              './assets/images/planet.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ));
   }
 }

@@ -1,3 +1,5 @@
+import 'package:estatetial_flutter_challenge/utils/colors.dart';
+import 'package:estatetial_flutter_challenge/utils/mock_data.dart';
 import 'package:estatetial_flutter_challenge/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +12,7 @@ List<Widget> containers = [
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Launch(),
+        Launch(index: 0),
         SizedBox(
           height: 40,
         ),
@@ -28,13 +30,27 @@ List<Widget> containers = [
     ),
   ),
   Container(
-      child: ListView(children: [
-    Launch(),
-  ])),
+    padding: const EdgeInsets.symmetric(
+      horizontal: 24,
+    ),
+    child: ListView.builder(
+      itemCount: DATA.length,
+      itemBuilder: (context, index) {
+        return Launch(index: index);
+      },
+    ),
+  ),
   Container(
-      child: Column(
-    children: [Launch(), Launch(), Launch()],
-  )),
+    padding: const EdgeInsets.symmetric(
+      horizontal: 24,
+    ),
+    child: ListView.builder(
+      itemCount: DATA.length,
+      itemBuilder: (context, index) {
+        return Launch(index: index);
+      },
+    ),
+  ),
 ];
 
 void openBottomMenu(context) {
@@ -45,47 +61,64 @@ void openBottomMenu(context) {
     ),
     context: context,
     builder: (context) {
-      return DefaultTabController(
-        length: 3,
-        child: ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.85,
-            child: Scaffold(
-              appBar: PreferredSize(
-                preferredSize: Size.fromHeight(70),
-                child: AppBar(
-                  backgroundColor: Colors.white,
-                  elevation: 0,
-                  automaticallyImplyLeading: false,
-                  bottom: TabBar(tabs: <Widget>[
-                    Tab(
-                      child: Text(
-                        'Upcoming',
-                        style: ThemeText.GREY_TAB_TEXT,
-                      ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'Launches',
-                        style: ThemeText.GREY_TAB_TEXT,
-                      ),
-                    ),
-                    Tab(
-                      child: Text(
-                        'Rockets',
-                        style: ThemeText.GREY_TAB_TEXT,
-                      ),
-                    ),
-                  ]),
-                ),
-              ),
-              body: TabBarView(children: containers),
-            ),
-          ),
-        ),
-      );
+      return Tabs();
     },
     isScrollControlled: true,
   );
+}
+
+class Tabs extends StatefulWidget {
+  Tabs({Key key}) : super(key: key);
+
+  @override
+  _TabsState createState() => _TabsState();
+}
+
+class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 3,
+      child: ClipRRect(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.85,
+          child: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(70),
+              child: AppBar(
+                backgroundColor: Colors.white,
+                elevation: 0,
+                automaticallyImplyLeading: false,
+                bottom: TabBar(
+                    indicatorSize: TabBarIndicatorSize.label,
+                    unselectedLabelColor: GREY_COLOR,
+                    labelColor: RED_COLOR,
+                    indicator: UnderlineTabIndicator(
+                        borderSide:
+                            const BorderSide(width: 4, color: RED_COLOR)),
+                    tabs: <Widget>[
+                      Tab(
+                          child: Text('Upcoming',
+                              style: TextStyle(fontSize: 18, height: 2))),
+                      Tab(
+                          child: Text('Launches',
+                              style: TextStyle(fontSize: 18, height: 2))),
+                      Tab(
+                          child: Text('Rockets',
+                              style: TextStyle(fontSize: 18, height: 2))),
+                    ]),
+              ),
+            ),
+            body: Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: TabBarView(
+                children: containers,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
